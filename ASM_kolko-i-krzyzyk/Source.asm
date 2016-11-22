@@ -23,7 +23,7 @@ public _main
 	dlugosc_akt_tura	db	27
 	bufor_na_input		db	32 dup (?)
 	;-------------------------------------------------------------------
-	pola db 9 dup (' ')	;tu przechowywane bêd¹ stany pól				; 
+	pola db 9 dup (' ')	;tu przechowywane bÄ™dÄ… stany pÃ³l				; 
 						;indeksowane od lewej do prawej z gory na dol	;
 						;012											;
 						;345											;
@@ -177,7 +177,7 @@ ret
 sprawdz_wygrana ENDP
 
 mapuj_EAX PROC
-				;pamiêæ | klawiatura
+				;pamiÄ™Ä‡ | klawiatura
 				;0 1 2	| 7 8 9	
 				;3 4 5	| 4 5 6
 				;6 7 8	| 1 2 3
@@ -223,9 +223,9 @@ add esp, 12					; usuniecie 3 arg ze stosu
 ;---sprawdz poprawnosc
 	xor eax, eax
 mov al, bufor_na_input		; przeslanie wczytanego bajtu do al
-				; odjêcie kodu znaku 0
-cmp al, 39H					; chcê akceptowaæ tylko cyfry od 0 do 8
-jg wi_niepoprawny_input		; wiêc jeœli wiêksze, do skok do obs³ugi 
+				; odjÄ™cie kodu znaku 0
+cmp al, 39H					; chcÄ™ akceptowaÄ‡ tylko cyfry od 0 do 8
+jg wi_niepoprawny_input		; wiÄ™c jeÅ›li wiÄ™ksze, do skok do obsÅ‚ugi 
 cmp al, 31H
 jb wi_niepoprawny_input
 	sub al, 30H	
@@ -256,7 +256,7 @@ jb wi_niepoprawny_input
 
 
 
-jmp wi_koniec				; zakoñcz procedurê
+jmp wi_koniec				; zakoÅ„cz procedurÄ™
 
 wi_niepoprawny_input:
 	;---wyswietlenie komunikatu o niepoprawnym inpucie
@@ -443,13 +443,10 @@ startuj:
 	call wczytaj_input
 	
 	call sprawdz_wygrana
-	
 
 	call zmien_ture
 
 	jmp startuj
-
-
 
 	push 0
 	call _ExitProcess@4
